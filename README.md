@@ -66,3 +66,29 @@ Contribución:
 Agradecemos las contribuciones para mejorar la precisión, eficiencia o documentación de los modelos. 
 
 Siéntete libre de bifurcar este repositorio, realizar mejoras y enviar solicitudes de extracción.
+
+
+LSTM Model for PM2.5 Prediction
+Descripción
+Este modelo LSTM está diseñado para predecir los niveles de PM2.5 en el Área Metropolitana del Valle de Aburrá basado en datos históricos.
+
+Uso
+El modelo puede ser utilizado para predecir PM2.5 con datos de series temporales del área mencionada. Para usar el modelo, proporciona una secuencia de valores PM2.5 de los últimos 5 días.
+
+Datos
+El modelo fue entrenado con datos históricos de PM2.5 recopilados en el Valle de Aburrá. Estos datos incluyen mediciones diarias de concentraciones de PM2.5.
+
+Cómo usar este modelo con la API de Hugging Face
+Aquí puedes incluir un ejemplo de cómo hacer una petición a la API de Hugging Face para obtener predicciones de tu modelo. Esto puede ser útil para usuarios que desean integrar tu modelo en sus aplicaciones.
+
+import requests
+
+API_URL = "https://api-inference.huggingface.co/models/ManCD/lstm-pm25-model"
+headers = {"Authorization": "Bearer tu_token_de_Hugging_Face"}
+
+def query(payload):
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
+output = query({"inputs": "aquí_tus_datos_de_entrada"})
+print(output)
